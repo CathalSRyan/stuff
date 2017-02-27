@@ -1,0 +1,129 @@
+﻿  LevelLoader.cpp
+  CollisionBox.cpp
+  BTMath.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\utils\btmath.cpp(23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  RenderSystem.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\rendersystem.cpp(29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\rendersystem.cpp(38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\rendersystem.cpp(42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\rendersystem.cpp(55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): warning C4267: 'argument': conversion from 'size_t' to 'entityx::uint32_t', possible loss of data
+  c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): note: while compiling class template member function 'entityx::EntityManager::UnpackingView<Derived,Display>::Iterator entityx::EntityManager::UnpackingView<Derived,Display>::end(void)'
+          with
+          [
+              Derived=Position
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\rendersystem.cpp(34): note: see reference to function template instantiation 'entityx::EntityManager::UnpackingView<Derived,Display>::Iterator entityx::EntityManager::UnpackingView<Derived,Display>::end(void)' being compiled
+          with
+          [
+              Derived=Position
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\rendersystem.cpp(34): note: see reference to class template instantiation 'entityx::EntityManager::UnpackingView<Derived,Display>' being compiled
+          with
+          [
+              Derived=Position
+          ]
+  PlayerControlSystem.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): warning C4267: 'argument': conversion from 'size_t' to 'entityx::uint32_t', possible loss of data
+  c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): note: while compiling class template member function 'entityx::EntityManager::UnpackingView<Derived,Motion,Position>::Iterator entityx::EntityManager::UnpackingView<Derived,Motion,Position>::end(void)'
+          with
+          [
+              Derived=PlayerControl
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\playercontrolsystem.cpp(21): note: see reference to function template instantiation 'entityx::EntityManager::UnpackingView<Derived,Motion,Position>::Iterator entityx::EntityManager::UnpackingView<Derived,Motion,Position>::end(void)' being compiled
+          with
+          [
+              Derived=PlayerControl
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\playercontrolsystem.cpp(21): note: see reference to class template instantiation 'entityx::EntityManager::UnpackingView<Derived,Motion,Position>' being compiled
+          with
+          [
+              Derived=PlayerControl
+          ]
+  MovementSystem.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\movementsystem.cpp(21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): warning C4267: 'argument': conversion from 'size_t' to 'entityx::uint32_t', possible loss of data
+  c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): note: while compiling class template member function 'entityx::EntityManager::UnpackingView<Derived,Parent>::Iterator entityx::EntityManager::UnpackingView<Derived,Parent>::end(void)'
+          with
+          [
+              Derived=Position
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\movementsystem.cpp(34): note: see reference to function template instantiation 'entityx::EntityManager::UnpackingView<Derived,Parent>::Iterator entityx::EntityManager::UnpackingView<Derived,Parent>::end(void)' being compiled
+          with
+          [
+              Derived=Position
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\movementsystem.cpp(34): note: see reference to class template instantiation 'entityx::EntityManager::UnpackingView<Derived,Parent>' being compiled
+          with
+          [
+              Derived=Position
+          ]
+  LevelSystem.cpp
+  AiControlSystem.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): warning C4267: 'argument': conversion from 'size_t' to 'entityx::uint32_t', possible loss of data
+  c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(478): note: while compiling class template member function 'entityx::EntityManager::UnpackingView<Derived>::Iterator entityx::EntityManager::UnpackingView<Derived>::end(void)'
+          with
+          [
+              Derived=Ai
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\aicontrolsystem.cpp(44): note: see reference to function template instantiation 'entityx::EntityManager::UnpackingView<Derived>::Iterator entityx::EntityManager::UnpackingView<Derived>::end(void)' being compiled
+          with
+          [
+              Derived=Ai
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\systems\aicontrolsystem.cpp(44): note: see reference to class template instantiation 'entityx::EntityManager::UnpackingView<Derived>' being compiled
+          with
+          [
+              Derived=Ai
+          ]
+  ScreenSize.cpp
+  ResourcePath.cpp
+  main.cpp
+  KeyHandler.cpp
+  GameManager.cpp
+  Game.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\game.cpp(9): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
+  EntityCreator.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(582): warning C4291: 'void *operator new(std::size_t,void *) throw()': no matching operator delete found; memory will not be freed if initialization throws an exception
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime_new.h(86): note: see declaration of 'operator new'
+  c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(866): note: see reference to function template instantiation 'entityx::ComponentHandle<Derived,entityx::EntityManager> entityx::EntityManager::assign<C,>(entityx::Entity::Id)' being compiled
+          with
+          [
+              Derived=Position,
+              C=Position
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\entitycreator.cpp(12): note: see reference to function template instantiation 'entityx::ComponentHandle<Derived,entityx::EntityManager> entityx::Entity::assign<Position,>(void)' being compiled
+          with
+          [
+              Derived=Position
+          ]
+c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(582): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  c:\users\c00201715\desktop\ecs_example\ecs_example\include\entityx\entity.h(866): note: see reference to function template instantiation 'entityx::ComponentHandle<Derived,entityx::EntityManager> entityx::EntityManager::assign<C,_Ty>(entityx::Entity::Id,_Ty &&)' being compiled
+          with
+          [
+              Derived=Motion,
+              C=Motion,
+              _Ty=int
+          ]
+  c:\users\c00201715\desktop\ecs_example\ecs_example\src\entitycreator.cpp(27): note: see reference to function template instantiation 'entityx::ComponentHandle<Derived,entityx::EntityManager> entityx::Entity::assign<Motion,int>(int &&)' being compiled
+          with
+          [
+              Derived=Motion
+          ]
+  Wall.cpp
+  Volume.cpp
+  Turret.cpp
+  Tank.cpp
+  Position.cpp
+  Generating Code...
+  Compiling...
+  PlayerControl.cpp
+  Parent.cpp
+  Motion.cpp
+  Display.cpp
+  Background.cpp
+  Ai.cpp
+  TankAi.cpp
+c:\users\c00201715\desktop\ecs_example\ecs_example\src\ai\tankai.cpp(102): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
