@@ -1,5 +1,4 @@
 #pragma once
-
 #include "entityx/Entity.h"
 
 enum class WallType

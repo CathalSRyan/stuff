@@ -15,30 +15,36 @@ class TankAi
 {
 public:
 
-   TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id);
+   TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id, std::vector<sf::CircleShape> const & nodes);
 
 
    void update(entityx::Entity::Id playerId,  
 	           entityx::Entity::Id aiId,
                entityx::EntityManager& entities,
+			   entityx::EventManager& events,
                double dt);
  
    enum class AiType
    {
 	   AI_ID_NONE, 
-	   AI_ID_SEEK_SHOOT_AT_PLAYER
+	   AI_ID_SEEK_SHOOT_AT_PLAYER,
+	   AI_ID_PATH_FOLLOWING
    };
 
 private:
 	sf::Vector2f seek(entityx::Entity::Id playerId,
 					  entityx::Entity::Id aiId,
 					  entityx::EntityManager& entities) const;
+	
+	sf::Vector2f seekNodes(entityx::Entity::Id aiId, entityx::EntityManager& entities, entityx::EventManager& events);
 
 	sf::Vector2f collisionAvoidance(entityx::Entity::Id aiId, 
 						            entityx::EntityManager& entities);
 
+	sf::Vector2f pathFollowing(entityx::Entity::Id aiID, entityx::EntityManager& entities, entityx::EventManager& events);
 	const sf::CircleShape findMostThreateningObstacle(entityx::Entity::Id aiId,
 													  entityx::EntityManager& entities) ;
+	int nextNode;
 
 	sf::Vector2f m_velocity;
 
@@ -56,14 +62,17 @@ private:
 
 	float MAX_SPEED = 50.0f;
 
+	const float NODE_THRESHOLD = 100.0f; // Distance between Tank AI and node before it's considered "Reached"
 
+	std::vector<sf::CircleShape> const & m_nodes; 
 	std::vector<sf::CircleShape> const & m_obstacles;
 
 	enum class AiBehaviour
 	{
 		SEEK_PLAYER,
 		STOP,
-		RETREAT
+		RETREAT,
+		PATH_FOLLOWING
 	} m_aiBehaviour;
   
 

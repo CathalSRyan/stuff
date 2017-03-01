@@ -14,6 +14,7 @@
 #include "utils/LevelLoader.h"
 #include "components/Wall.h" 
 #include "components/AI.h"
+#include "components\Node.h"
 #include "ai/TankAI.h"
 
 class WallCreator : public ICreatable
@@ -30,6 +31,18 @@ private:
 	std::string m_type;
 	sf::Vector2f m_position;
 	double m_rotation;
+};
+
+class NodeCreator : public ICreatable
+{
+public:
+	NodeCreator(sf::Vector2f position);
+
+	void create(entityx::Entity& entity);
+
+private:
+	std::string m_Ntype;
+	sf::Vector2f m_Nposition;
 };
 
 class BackgroundCreator : public ICreatable

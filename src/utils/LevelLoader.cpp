@@ -8,6 +8,12 @@ void operator >> (const YAML::Node& obstacleNode, ObstacleData& obstacle)
    obstacle.m_rotation = obstacleNode["rotation"].as<double>();
 }
 
+void operator >> (const YAML::Node& aiNode, NodeData& nodes)
+{
+	nodes.m_NodePos.x = aiNode["position"]["x"].as<float>();
+	nodes.m_NodePos.y = aiNode["position"]["y"].as<float>();
+}
+
 void operator >> (const YAML::Node& backgroundNode, BackgroundData& background)
 {
    background.m_fileName = backgroundNode["file"].as<std::string>();
@@ -81,3 +87,4 @@ bool LevelLoader::load(int nr, LevelData& level)
 
    return true;
 }
+

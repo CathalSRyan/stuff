@@ -49,5 +49,11 @@ void LevelSystem::receive(const EvInit& e)
    {
 	   WallCreator(obstacle.m_type, obstacle.m_position, obstacle.m_rotation).create(m_entityManager.create());
    }
+
+   // Create the nodes
+   for (NodeData const &nodes : e.m_level.m_nodes)
+   {
+	   NodeCreator(nodes.m_NodePos);
+   }
 }
 

@@ -15,6 +15,11 @@ struct ObstacleData
   double m_rotation;
 };
 
+struct NodeData
+{
+	sf::Vector2f m_NodePos;
+};
+
 struct BackgroundData
 {
    std::string m_fileName;
@@ -40,6 +45,7 @@ struct LevelData
    TankData m_aiTank;
    ProjectileData m_projectile;
    std::vector<ObstacleData> m_obstacles;
+   std::vector<NodeData> m_nodes;
 };
 
 class LevelLoader

@@ -20,7 +20,7 @@ void AiControlSystem::receive(const EvReportPlayerId& e)
 void AiControlSystem::receive(const entityx::ComponentAddedEvent<Ai>& e)
 {
     Ai::Handle ai = e.component;
-    m_tankAi.reset(new TankAi(m_obstacles, ai->m_id));	
+    m_tankAi.reset(new TankAi(m_obstacles, ai->m_id, m_nodes));	
 }
 
 void AiControlSystem::receive(const entityx::ComponentAddedEvent<Wall>& e)
@@ -46,6 +46,7 @@ void AiControlSystem::update(entityx::EntityManager& entities,
 	   m_tankAi->update(m_playerId, 
 		                    entity.id(),
 							entities, 
+							events,
 							dt);
   
    }

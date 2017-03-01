@@ -36,5 +36,6 @@ private:
 	entityx::Entity::Id m_playerId;
 
 	std::vector<sf::CircleShape> m_obstacles;
+	std::vector<sf::CircleShape> m_nodes;
 };
 

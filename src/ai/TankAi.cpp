@@ -1,16 +1,19 @@
 #include "ai/TankAi.h"
 
 
-TankAi::TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id)
-  : m_aiBehaviour(AiBehaviour::SEEK_PLAYER)
+TankAi::TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id, std::vector<sf::CircleShape> const & nodes)
+  : m_aiBehaviour(AiBehaviour::PATH_FOLLOWING)
   , m_steering(0,0)
-  , m_obstacles(obstacles)
+  , m_obstacles(obstacles),
+	m_nodes(nodes)
 {
+	nextNode = 0;
 }
 
 void TankAi::update(entityx::Entity::Id playerId,
 	entityx::Entity::Id aiId,
 	entityx::EntityManager& entities,
+	entityx::EventManager& events,
 	double dt)
 {
 	entityx::Entity aiTank = entities.get(aiId);
@@ -18,13 +21,18 @@ void TankAi::update(entityx::Entity::Id playerId,
 	Position::Handle position = aiTank.component<Position>();
 	
 	
-	sf::Vector2f vectorToPlayer = seek(playerId,
-		aiId,
-		entities);
-	
+	sf::Vector2f vectorToPlayer = seek(playerId, aiId, entities);
+	sf::Vector2f vectorToNode = pathFollowing(aiId, entities, events);
 
 	switch (m_aiBehaviour)
 	{
+	case AiBehaviour::PATH_FOLLOWING:
+		m_steering += thor::unitVector(vectorToNode);
+		m_steering += collisionAvoidance(aiId, entities);
+		m_steering = Math::truncate(m_steering, MAX_FORCE);
+		m_velocity = Math::truncate(m_velocity + m_steering, MAX_SPEED);
+
+		break;
 	case AiBehaviour::SEEK_PLAYER:
 		m_steering += thor::unitVector(vectorToPlayer);
 		m_steering += collisionAvoidance(aiId, entities);
@@ -71,7 +79,7 @@ void TankAi::update(entityx::Entity::Id playerId,
 	else
 	{
 		motion->m_speed = thor::length(m_velocity);	
-		m_aiBehaviour = AiBehaviour::SEEK_PLAYER;
+		m_aiBehaviour = AiBehaviour::PATH_FOLLOWING;
 	}
 }
 
@@ -91,6 +99,29 @@ sf::Vector2f TankAi::seek(entityx::Entity::Id playerId,
 
 	return dist;
 }
+
+sf::Vector2f TankAi::seekNodes(entityx::Entity::Id aiId, entityx::EntityManager & entities, entityx::EventManager & events)
+{
+	sf::Vector2f targetNode;
+
+	entityx::Entity m_AITank = entities.get(aiId);
+	Position::Handle m_AIPosition = m_AITank.component<Position>();
+
+	targetNode = m_nodes[nextNode].getPosition() - m_AIPosition->m_position;
+
+	if ((targetNode.x < NODE_THRESHOLD && targetNode.y <NODE_THRESHOLD)
+		&& (targetNode.x > -NODE_THRESHOLD && targetNode.y > -NODE_THRESHOLD))
+	{
+		nextNode++;
+
+		if (nextNode >= m_nodes.size())
+		{
+			nextNode = 0;
+		}
+	}
+	return targetNode;
+}
+
 
 sf::Vector2f TankAi::collisionAvoidance(entityx::Entity::Id aiId, 
 									    entityx::EntityManager& entities)

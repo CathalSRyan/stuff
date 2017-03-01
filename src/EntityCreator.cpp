@@ -94,3 +94,19 @@ void WallCreator::create(entityx::Entity& entity)
 	entity.assign<Position>(m_position, m_rotation);
 	entity.assign<Wall>();
 }
+
+NodeCreator::NodeCreator(sf::Vector2f position)
+	:  m_Nposition(position)
+{
+}
+
+void NodeCreator::create(entityx::Entity& entity)
+{
+	auto volume = Volume();
+	volume.m_box = CollisionBox(60, 60);
+
+	entity.assign<Volume>(volume);
+	entity.assign<Display>(sf::IntRect(2, 129, 33, 23));
+	entity.assign<Position>(m_Nposition);
+	entity.assign<Node>();
+}

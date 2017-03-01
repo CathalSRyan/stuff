@@ -24,6 +24,7 @@
     <ClInclude Include="include\components\Background.h" />
     <ClInclude Include="include\components\Display.h" />
     <ClInclude Include="include\components\Motion.h" />
+    <ClInclude Include="include\components\Node.h" />
     <ClInclude Include="include\components\Parent.h" />
     <ClInclude Include="include\components\PlayerControl.h" />
     <ClInclude Include="include\components\Position.h" />
@@ -54,6 +55,7 @@
     <ClCompile Include="src\components\Background.cpp" />
     <ClCompile Include="src\components\Display.cpp" />
     <ClCompile Include="src\components\Motion.cpp" />
+    <ClCompile Include="src\components\Node.cpp" />
     <ClCompile Include="src\components\Parent.cpp" />
     <ClCompile Include="src\components\PlayerControl.cpp" />
     <ClCompile Include="src\components\Position.cpp" />
